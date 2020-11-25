@@ -15,7 +15,7 @@ class CardPile {
     return this.cards.size;
   }
 
-  drawRandom() {
+  random() {
     const size = this.cards.size
     if (size === 0) {
       return null;
