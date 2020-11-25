@@ -107,7 +107,7 @@ function tableRender(tarot, table) {
 
 function deckRender(deck) {
   return function(elem) {
-    const width = deck.size;
+    const width = deck.size / 5;
     elem.setAttribute("style", `float:left; height: 250px; width: 150px; border-left: 1px solid white; border-top: 1px solid white; border-bottom: ${width}px solid white; border-right: ${width}px solid white`);
   }
 }
