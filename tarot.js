@@ -1,11 +1,11 @@
-import cardDB from './cards.js';
+import CardDB from './carddb.js';
 import CardPile from './cardpile.js';
 
 class Tarot {
   constructor() {
-    this.cardDB = cardDB();
+    this.cardDB = new CardDB();
     this.deck = new CardPile();
-    for (const cardName in this.cardDB) {
+    for (const cardName in this.cardDB.cards) {
       this.deck.add(cardName);
     }
     this.table = new CardPile();
@@ -70,7 +70,11 @@ class Tarot {
         elem.innerHTML = "";
         return
       }
-      elem.innerHTML = cardElem.querySelector("span").innerHTML;
+      const cardName = cardElem.getAttribute('data-cardName');
+      const keywords = this.cardDB.keywords(cardName);
+      elem.innerHTML = "";
+      elem.innerHTML += `<h2>${cardName}</h2>`;
+      elem.innerHTML += keywords.join(", ");
     }
   }
 
@@ -93,7 +97,7 @@ class Tarot {
         const cardElem = bp.cloneNode(true);
         cardElem.classList.remove("blueprint");
         cardElem.setAttribute("data-cardName", cardName)
-        cardElem.setAttribute("style", "float:left; width: 150px; height: 250px; border: 1px solid pink;");
+        cardElem.setAttribute("style", "float:left; margin-right: 20px; width: 150px; height: 250px; border: 1px solid pink;");
         cardElem.querySelector("span").innerHTML = cardName;
         cardElem.addEventListener("mouseenter", this.render.bind(this));
         elem.append(cardElem);
