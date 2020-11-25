@@ -1,6 +1,15 @@
 import CardDB from './carddb.js';
 import CardPile from './cardpile.js';
 
+/* TODO
+ *
+ * - drag and drop the cards wherever
+ * - card front art
+ * - card back art for deck
+ * - fill in interpretive descriptions
+ * - fill in rest of keywords
+ */
+
 class Tarot {
   constructor() {
     this.cardDB = new CardDB();
@@ -97,7 +106,7 @@ class Tarot {
         const cardElem = bp.cloneNode(true);
         cardElem.classList.remove("blueprint");
         cardElem.setAttribute("data-cardName", cardName)
-        cardElem.setAttribute("style", "float:left; margin-right: 20px; width: 150px; height: 250px; border: 1px solid pink; text-align:center;");
+        cardElem.setAttribute("style", "float:left; margin-right: 20px; width: 150px; height: 250px; border: 1px solid grey; box-shadow: 2px 2px 2px pink; text-align:center;");
         cardElem.querySelector("span").innerHTML = cardName;
         cardElem.addEventListener("mouseenter", this.render.bind(this));
         elem.append(cardElem);
