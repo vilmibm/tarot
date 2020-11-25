@@ -97,7 +97,7 @@ class Tarot {
         const cardElem = bp.cloneNode(true);
         cardElem.classList.remove("blueprint");
         cardElem.setAttribute("data-cardName", cardName)
-        cardElem.setAttribute("style", "float:left; margin-right: 20px; width: 150px; height: 250px; border: 1px solid pink;");
+        cardElem.setAttribute("style", "float:left; margin-right: 20px; width: 150px; height: 250px; border: 1px solid pink; text-align:center;");
         cardElem.querySelector("span").innerHTML = cardName;
         cardElem.addEventListener("mouseenter", this.render.bind(this));
         elem.append(cardElem);
