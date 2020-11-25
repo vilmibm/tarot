@@ -40,7 +40,7 @@ class Tarot {
   }
 
   drawCard() {
-    let cardName = this.deck.random();
+    const cardName = this.deck.random();
     if (cardName === null) {
       this.render();
       return;
@@ -89,8 +89,8 @@ class Tarot {
           continue;
         }
 
-        let bp = document.querySelector(".card.blueprint");
-        let cardElem = bp.cloneNode(true);
+        const bp = document.querySelector(".card.blueprint");
+        const cardElem = bp.cloneNode(true);
         cardElem.classList.remove("blueprint");
         cardElem.setAttribute("data-cardName", cardName)
         cardElem.setAttribute("style", "float:left; width: 150px; height: 250px; border: 1px solid pink;");
